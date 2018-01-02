@@ -32,7 +32,7 @@ from scripts.count_ops import load_graph
 def evaluate_graph(graph_file_name):
     with load_graph(graph_file_name).as_default() as graph:
         ground_truth_input = tf.placeholder(
-            tf.float32, [None, 5], name='GroundTruthInput')
+            tf.float32, [None, 5], name='GroundTruthInput') # 这里5是因为有5个类别
         
         image_buffer_input = graph.get_tensor_by_name('input:0')
         final_tensor = graph.get_tensor_by_name('final_result:0')
